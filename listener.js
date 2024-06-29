@@ -19,7 +19,6 @@ const testnetContractAbi = JSON.parse(fs.readFileSync(TESTNET_ABI_PATH, 'utf8'))
 
 // Track the last processed block number
 let lastProcessedBlock = 0;
-let shouldJumpToLatestBlock = false;
 
 // Function to trigger the testnet contract function with error handling for nonce
 async function triggerTestnetFunction(testnetContract, nonce) {
@@ -50,6 +49,7 @@ async function processBlock(blockNumber) {
 
     let mainnetTxCount = 0;
     let testnetTxCount = 0;
+    let triggered = false;
 
     for (const tx of block.transactions) {
       // Check if the transaction is to the MAINNET_ADDRESS
@@ -64,43 +64,50 @@ async function processBlock(blockNumber) {
         const nonce = await testnetProvider.getTransactionCount(wallet.address, 'latest');
 
         // Try triggering the function with the current nonce, nonce+1, and nonce-1
-        let triggered = await triggerTestnetFunction(testnetContract, nonce);
+        triggered = await triggerTestnetFunction(testnetContract, nonce);
         if (!triggered) triggered = await triggerTestnetFunction(testnetContract, nonce + 1);
         if (!triggered) triggered = await triggerTestnetFunction(testnetContract, nonce - 1);
 
-        if (triggered) testnetTxCount++;
+        if (triggered) {
+          testnetTxCount++;
+          break; // Exit the loop after triggering a transaction
+        }
       }
     }
 
     console.log(`Block ${blockNumber} processed. Mainnet transactions: ${mainnetTxCount}, Testnet transactions triggered: ${testnetTxCount}`);
+    return triggered;
   } catch (error) {
     console.error(`Error processing block ${blockNumber}:`, error);
+    return false;
   }
 }
 
-// Start processing blocks
+// Start processing blocks in parallel
 async function start() {
   lastProcessedBlock = await mainnetProvider.getBlockNumber();
   console.log(`Starting from block ${lastProcessedBlock}`);
 
-  // Function to update the latest block number every minute
-  setInterval(async () => {
-    shouldJumpToLatestBlock = true;
-  }, 10); // Every 60 seconds (1 minute)
+  const parallelBlocks = 5; // Number of blocks to process in parallel
 
   while (true) {
-    await processBlock(lastProcessedBlock);
+    const blockPromises = [];
 
-    // Jump to the latest block if the flag is set
-    if (shouldJumpToLatestBlock) {
-      lastProcessedBlock = await mainnetProvider.getBlockNumber();
-      console.log(`Jumping to the latest block ${lastProcessedBlock}`);
-      shouldJumpToLatestBlock = false;
-    } else {
-      lastProcessedBlock++;
+    for (let i = 0; i < parallelBlocks; i++) {
+      blockPromises.push(processBlock(lastProcessedBlock + i));
     }
 
-    await sleep(1); // Sleep for 1 second before processing the next block
+    const results = await Promise.all(blockPromises);
+    const transactionTriggered = results.includes(true);
+
+    if (transactionTriggered) {
+      lastProcessedBlock = await mainnetProvider.getBlockNumber();
+      console.log(`Transaction triggered. Jumping to the latest block ${lastProcessedBlock}`);
+    } else {
+      lastProcessedBlock += parallelBlocks;
+    }
+
+    await sleep(500); // Sleep for 1 second before processing the next set of blocks
   }
 }
 
