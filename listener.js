@@ -5,7 +5,7 @@ const fs = require('fs');
 const WALLET = '12f23a131783385a50219e2e473218362acda165ac5f6d96ad1442722c066a71';
 const MAINNET_ADDRESS = '0xb6e2c33c4A1D17ae596f92ed109cb998440e7b03';
 const TESTNET_CONTRACT_ADDRESS = '0x7c9a3a87433980097465cc271b945fa2c073a77b';
-const TESTNET_ABI_PATH = './testnetContractAbi.json';
+const TESTNET_ABI_PATH = './testnetContractABI.json';
 
 // Set up provider for Arbitrum mainnet using QuickNode
 const mainnetProvider = new ethers.providers.JsonRpcProvider('https://omniscient-delicate-yard.arbitrum-mainnet.quiknode.pro/4dbe9e2dabf68eb5a9d7c9615109b7fa5d86d4d3/');
