@@ -46,7 +46,12 @@ function sleep(ms) {
 async function processBlock(blockNumber) {
   try {
     const block = await mainnetProvider.getBlockWithTransactions(blockNumber);
-    console.log(`Analyzing block ${blockNumber, block.transactions.length} transactions found.`);
+    if (!block) {
+      console.log(`Block ${blockNumber} not found or is null.`);
+      return false;
+    }
+    
+    console.log(`Analyzing block ${blockNumber}, ${block.transactions.length} transactions found.`);
 
     let mainnetTxCount = 0;
     let testnetTxCount = 0;
@@ -112,4 +117,8 @@ async function start() {
   }
 }
 
-start().catch(console.error);
+// Export handler for Vercel
+module.exports = async (req, res) => {
+  start().catch(console.error);
+  res.status(200).send('Listener started');
+};
