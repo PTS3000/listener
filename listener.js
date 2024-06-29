@@ -46,11 +46,6 @@ function sleep(ms) {
 async function processBlock(blockNumber) {
   try {
     const block = await mainnetProvider.getBlockWithTransactions(blockNumber);
-    if (!block) {
-      console.log(`Block ${blockNumber} not found or is null.`);
-      return false;
-    }
-    
     console.log(`Analyzing block ${blockNumber}, ${block.transactions.length} transactions found.`);
 
     let mainnetTxCount = 0;
@@ -90,11 +85,12 @@ async function processBlock(blockNumber) {
 }
 
 // Start processing blocks in parallel
-async function start() {
+async function start(X) {
   lastProcessedBlock = await mainnetProvider.getBlockNumber();
   console.log(`Starting from block ${lastProcessedBlock}`);
 
   const parallelBlocks = 5; // Number of blocks to process in parallel
+  let lastJumpTime = Date.now();
 
   while (true) {
     const blockPromises = [];
@@ -106,19 +102,18 @@ async function start() {
     const results = await Promise.all(blockPromises);
     const transactionTriggered = results.includes(true);
 
-    if (transactionTriggered) {
+    if (transactionTriggered || (Date.now() - lastJumpTime) >= X * 1000) {
       lastProcessedBlock = await mainnetProvider.getBlockNumber();
-      console.log(`Transaction triggered. Jumping to the latest block ${lastProcessedBlock}`);
+      console.log(`Jumping to the latest block ${lastProcessedBlock}`);
+      lastJumpTime = Date.now();
     } else {
       lastProcessedBlock += parallelBlocks;
     }
 
-    await sleep(500); // Sleep for 1 second before processing the next set of blocks
+    await sleep(400); // Sleep for 1 second before processing the next set of blocks
   }
 }
 
-// Export handler for Vercel
-module.exports = async (req, res) => {
-  start().catch(console.error);
-  res.status(200).send('Listener started');
-};
+// Start the script with X seconds parameter
+const X = 5; // Change this value to the desired number of seconds
+start(X).catch(console.error);
