@@ -1,0 +1,4613 @@
+[
+    {
+      "type": "function",
+      "name": "batchCall",
+      "inputs": [
+        {
+          "name": "systemCalls",
+          "type": "tuple[]",
+          "internalType": "struct SystemCallData[]",
+          "components": [
+            {
+              "name": "systemId",
+              "type": "bytes32",
+              "internalType": "ResourceId"
+            },
+            {
+              "name": "callData",
+              "type": "bytes",
+              "internalType": "bytes"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "returnDatas",
+          "type": "bytes[]",
+          "internalType": "bytes[]"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "batchCallFrom",
+      "inputs": [
+        {
+          "name": "systemCalls",
+          "type": "tuple[]",
+          "internalType": "struct SystemCallFromData[]",
+          "components": [
+            {
+              "name": "from",
+              "type": "address",
+              "internalType": "address"
+            },
+            {
+              "name": "systemId",
+              "type": "bytes32",
+              "internalType": "ResourceId"
+            },
+            {
+              "name": "callData",
+              "type": "bytes",
+              "internalType": "bytes"
+            }
+          ]
+        }
+      ],
+      "outputs": [
+        {
+          "name": "returnDatas",
+          "type": "bytes[]",
+          "internalType": "bytes[]"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "call",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "callData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "callFrom",
+      "inputs": [
+        {
+          "name": "delegator",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "callData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "creator",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "deleteRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "getDynamicField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getDynamicFieldLength",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getDynamicFieldSlice",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "start",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "end",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getFieldLayout",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getFieldLength",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getFieldLength",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getKeySchema",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "keySchema",
+          "type": "bytes32",
+          "internalType": "Schema"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "staticData",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "encodedLengths",
+          "type": "bytes32",
+          "internalType": "EncodedLengths"
+        },
+        {
+          "name": "dynamicData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "staticData",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "encodedLengths",
+          "type": "bytes32",
+          "internalType": "EncodedLengths"
+        },
+        {
+          "name": "dynamicData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getStaticField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "getValueSchema",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "valueSchema",
+          "type": "bytes32",
+          "internalType": "Schema"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "grantAccess",
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "grantee",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "initialize",
+      "inputs": [
+        {
+          "name": "initModule",
+          "type": "address",
+          "internalType": "contract IModule"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "installModule",
+      "inputs": [
+        {
+          "name": "module",
+          "type": "address",
+          "internalType": "contract IModule"
+        },
+        {
+          "name": "encodedArgs",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "installRootModule",
+      "inputs": [
+        {
+          "name": "module",
+          "type": "address",
+          "internalType": "contract IModule"
+        },
+        {
+          "name": "encodedArgs",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_accelerate",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "payable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_addToBlueprint",
+      "inputs": [
+        {
+          "name": "playerKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "buildingData",
+          "type": "tuple",
+          "internalType": "struct EntityData",
+          "components": [
+            {
+              "name": "entityTypeId",
+              "type": "uint32",
+              "internalType": "uint32"
+            },
+            {
+              "name": "x",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "y",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "quad",
+              "type": "uint16",
+              "internalType": "uint16"
+            },
+            {
+              "name": "height",
+              "type": "int32",
+              "internalType": "int32"
+            }
+          ]
+        },
+        {
+          "name": "orientation",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_build",
+      "inputs": [
+        {
+          "name": "player",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "ingredientKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "buildingData",
+          "type": "tuple",
+          "internalType": "struct EntityData",
+          "components": [
+            {
+              "name": "entityTypeId",
+              "type": "uint32",
+              "internalType": "uint32"
+            },
+            {
+              "name": "x",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "y",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "quad",
+              "type": "uint16",
+              "internalType": "uint16"
+            },
+            {
+              "name": "height",
+              "type": "int32",
+              "internalType": "int32"
+            }
+          ]
+        },
+        {
+          "name": "orientation",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_drop",
+      "inputs": [
+        {
+          "name": "player",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_paint",
+      "inputs": [
+        {
+          "name": "player",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "ingredientKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "color",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "altColor",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_plantCrop",
+      "inputs": [
+        {
+          "name": "farmKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_rummage",
+      "inputs": [
+        {
+          "name": "player",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_transmute",
+      "inputs": [
+        {
+          "name": "player",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__Action_updateWorld",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ChildSystem_addChildToParent",
+      "inputs": [
+        {
+          "name": "child",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "parent",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ChildSystem_hasRelationship",
+      "inputs": [
+        {
+          "name": "child",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ChildSystem_removeChildFromParent",
+      "inputs": [
+        {
+          "name": "child",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "parent",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_addContainer",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "numSlots",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_canTakeItemInSlot",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "slot",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_hasItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_hasItemInSlot",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "slot",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_isContainer",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_isEmpty",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_isFull",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_numItems",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_removeItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__ContainerSystem_takeItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "slot",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CoordinateSystem_hasCoordinate",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CoordinateSystem_isPositionEmpty",
+      "inputs": [
+        {
+          "name": "x",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "y",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "quad",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "height",
+          "type": "int32",
+          "internalType": "int32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CoordinateSystem_setPosition",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "x",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "y",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "quad",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "height",
+          "type": "int32",
+          "internalType": "int32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_addCrop",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "productEntityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "growRate",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "growerKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_calculateGrowth",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_harvest",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "playerKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_isCrop",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_isGrowing",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_isMatured",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__CropSystem_setGrowerKey",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "growerKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EaterSystem_addEater",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EdibleSystem_addEdible",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "healthValue",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "hungerValue",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_createEntity",
+      "inputs": [
+        {
+          "name": "entityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_createEntityAtPosition",
+      "inputs": [
+        {
+          "name": "entityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "x",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "y",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "quad",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "height",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "rotation",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_destroyEntity",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_doesEntityExist",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_nextEntityKey",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__EntitySystem_replaceAndBuildEntity",
+      "inputs": [
+        {
+          "name": "oldEntity",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "entityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "x",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "y",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "quad",
+          "type": "uint16",
+          "internalType": "uint16"
+        },
+        {
+          "name": "height",
+          "type": "int32",
+          "internalType": "int32"
+        },
+        {
+          "name": "rotation",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_completeGeneration",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_createPlayer",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_createWorld",
+      "inputs": [
+        {
+          "name": "maxPlayers",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_getRandom",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_loadLevel",
+      "inputs": [
+        {
+          "name": "entities",
+          "type": "tuple[]",
+          "internalType": "struct EntityData[]",
+          "components": [
+            {
+              "name": "entityTypeId",
+              "type": "uint32",
+              "internalType": "uint32"
+            },
+            {
+              "name": "x",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "y",
+              "type": "int32",
+              "internalType": "int32"
+            },
+            {
+              "name": "quad",
+              "type": "uint16",
+              "internalType": "uint16"
+            },
+            {
+              "name": "height",
+              "type": "int32",
+              "internalType": "int32"
+            }
+          ]
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_setMaxPlayers",
+      "inputs": [
+        {
+          "name": "maxPlayers",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GameSystem_update",
+      "inputs": [],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowableSystem_addGrowable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "stageTimes",
+          "type": "uint32[]",
+          "internalType": "uint32[]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowableSystem_calculateGrowth",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowableSystem_isFinished",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowableSystem_isGrowable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowableSystem_isGrowing",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowerSystem_addGrower",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "maxCrops",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowerSystem_isEmpty",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowerSystem_isGrower",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowerSystem_plantItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__GrowerSystem_removeCrop",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__InventoryItem_addInventoryItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__InventoryItem_destroy",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__InventoryItem_getOwner",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__InventoryItem_isInventoryItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__InventoryItem_setOwner",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "ownerKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_createJungleTable",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_createLootTable",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "itemTypes",
+          "type": "uint32[]",
+          "internalType": "uint32[]"
+        },
+        {
+          "name": "weights",
+          "type": "uint32[]",
+          "internalType": "uint32[]"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_createRockTable",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_createSeedTable",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_getLootTable",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "tuple",
+          "internalType": "struct LootTableData",
+          "components": [
+            {
+              "name": "itemTypes",
+              "type": "uint32[]",
+              "internalType": "uint32[]"
+            },
+            {
+              "name": "weights",
+              "type": "uint32[]",
+              "internalType": "uint32[]"
+            }
+          ]
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_getRandomItem",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "seed",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__LootTableSystem_getRandomSeed",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlantableSystem_addPlantable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "productEntityTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        },
+        {
+          "name": "produceAmount",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlantableSystem_isPlantable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlantableSystem_randomizeProductTypeId",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "tableId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_addPlot",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "maxItems",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_isAccepting",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_isEmpty",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_isPlot",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_putItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_removeItem",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PlotSystem_setAccepting",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "toggle",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createBambooPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createBedPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createFarmPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createFoxPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createHousePrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createJunglePrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createLimestonePrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createMixedSeedPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createPandaPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createPigmentPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createPrefabId",
+      "inputs": [
+        {
+          "name": "entityPrefabTypeId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createRockPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createShovelPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createTestInventoryItemPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createTestPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createVegetablePrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createWoodPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__PrefabSystem_createWorldPrefab",
+      "inputs": [
+        {
+          "name": "id",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__RummageSystem_addRummage",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "maxUses",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "lootTableId",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__RummageSystem_generateWeightedRandom",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint32",
+          "internalType": "uint32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__RummageSystem_isRummage",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__RummageSystem_rummage",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_add",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "itemKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_addStackable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_getAmount",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_isFull",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_isStack",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_isStackable",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_roomLeft",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_setMaxSize",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "size",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_setStackSize",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "size",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__StackableSystem_take",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "amount",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_fastforwardTask",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "fastForward",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_getPercentageComplete",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_isFinished",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_isTask",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_removeTask",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_restartTask",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "taskKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__TaskSystem_startTask",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "time",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "periodic",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__VariantSystem_addVariant",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__VariantSystem_hasVariants",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "jungle__VariantSystem_setVariants",
+      "inputs": [
+        {
+          "name": "entityKey",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        },
+        {
+          "name": "color",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "altColor",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "jungle__WorldGlobalSystem_getFertilityMultiplier",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "popFromDynamicField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "byteLengthToPop",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "pushToDynamicField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "dataToPush",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerDelegation",
+      "inputs": [
+        {
+          "name": "delegatee",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "delegationControlId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "initCallData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerFunctionSelector",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "systemFunctionSignature",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "worldFunctionSelector",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerNamespace",
+      "inputs": [
+        {
+          "name": "namespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerNamespaceDelegation",
+      "inputs": [
+        {
+          "name": "namespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "delegationControlId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "initCallData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerRootFunctionSelector",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "worldFunctionSignature",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "systemFunctionSignature",
+          "type": "string",
+          "internalType": "string"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "worldFunctionSelector",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerStoreHook",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "hookAddress",
+          "type": "address",
+          "internalType": "contract IStoreHook"
+        },
+        {
+          "name": "enabledHooksBitmap",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerSystem",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "system",
+          "type": "address",
+          "internalType": "contract System"
+        },
+        {
+          "name": "publicAccess",
+          "type": "bool",
+          "internalType": "bool"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerSystemHook",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "hookAddress",
+          "type": "address",
+          "internalType": "contract ISystemHook"
+        },
+        {
+          "name": "enabledHooksBitmap",
+          "type": "uint8",
+          "internalType": "uint8"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "registerTable",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        },
+        {
+          "name": "keySchema",
+          "type": "bytes32",
+          "internalType": "Schema"
+        },
+        {
+          "name": "valueSchema",
+          "type": "bytes32",
+          "internalType": "Schema"
+        },
+        {
+          "name": "keyNames",
+          "type": "string[]",
+          "internalType": "string[]"
+        },
+        {
+          "name": "fieldNames",
+          "type": "string[]",
+          "internalType": "string[]"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "renounceOwnership",
+      "inputs": [
+        {
+          "name": "namespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "revokeAccess",
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "grantee",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setDynamicField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "staticData",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "encodedLengths",
+          "type": "bytes32",
+          "internalType": "EncodedLengths"
+        },
+        {
+          "name": "dynamicData",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "setStaticField",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "fieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "fieldLayout",
+          "type": "bytes32",
+          "internalType": "FieldLayout"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "spliceDynamicData",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "internalType": "uint8"
+        },
+        {
+          "name": "startWithinField",
+          "type": "uint40",
+          "internalType": "uint40"
+        },
+        {
+          "name": "deleteCount",
+          "type": "uint40",
+          "internalType": "uint40"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "spliceStaticData",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "start",
+          "type": "uint48",
+          "internalType": "uint48"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "storeVersion",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "version",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "function",
+      "name": "transferBalanceToAddress",
+      "inputs": [
+        {
+          "name": "fromNamespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "toAddress",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferBalanceToNamespace",
+      "inputs": [
+        {
+          "name": "fromNamespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "toNamespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "transferOwnership",
+      "inputs": [
+        {
+          "name": "namespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "newOwner",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "unregisterDelegation",
+      "inputs": [
+        {
+          "name": "delegatee",
+          "type": "address",
+          "internalType": "address"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "unregisterNamespaceDelegation",
+      "inputs": [
+        {
+          "name": "namespaceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "unregisterStoreHook",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "hookAddress",
+          "type": "address",
+          "internalType": "contract IStoreHook"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "unregisterSystemHook",
+      "inputs": [
+        {
+          "name": "systemId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "hookAddress",
+          "type": "address",
+          "internalType": "contract ISystemHook"
+        }
+      ],
+      "outputs": [],
+      "stateMutability": "nonpayable"
+    },
+    {
+      "type": "function",
+      "name": "worldVersion",
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "",
+          "type": "bytes32",
+          "internalType": "bytes32"
+        }
+      ],
+      "stateMutability": "view"
+    },
+    {
+      "type": "event",
+      "name": "HelloStore",
+      "inputs": [
+        {
+          "name": "storeVersion",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "HelloWorld",
+      "inputs": [
+        {
+          "name": "worldVersion",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "bytes32"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Store_DeleteRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "indexed": false,
+          "internalType": "bytes32[]"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Store_SetRecord",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "indexed": false,
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "staticData",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        },
+        {
+          "name": "encodedLengths",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "EncodedLengths"
+        },
+        {
+          "name": "dynamicData",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Store_SpliceDynamicData",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "indexed": false,
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "dynamicFieldIndex",
+          "type": "uint8",
+          "indexed": false,
+          "internalType": "uint8"
+        },
+        {
+          "name": "start",
+          "type": "uint48",
+          "indexed": false,
+          "internalType": "uint48"
+        },
+        {
+          "name": "deleteCount",
+          "type": "uint40",
+          "indexed": false,
+          "internalType": "uint40"
+        },
+        {
+          "name": "encodedLengths",
+          "type": "bytes32",
+          "indexed": false,
+          "internalType": "EncodedLengths"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "event",
+      "name": "Store_SpliceStaticData",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "indexed": true,
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "keyTuple",
+          "type": "bytes32[]",
+          "indexed": false,
+          "internalType": "bytes32[]"
+        },
+        {
+          "name": "start",
+          "type": "uint48",
+          "indexed": false,
+          "internalType": "uint48"
+        },
+        {
+          "name": "data",
+          "type": "bytes",
+          "indexed": false,
+          "internalType": "bytes"
+        }
+      ],
+      "anonymous": false
+    },
+    {
+      "type": "error",
+      "name": "EncodedLengths_InvalidLength",
+      "inputs": [
+        {
+          "name": "length",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_Empty",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_InvalidStaticDataLength",
+      "inputs": [
+        {
+          "name": "staticDataLength",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "computedStaticDataLength",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_StaticLengthDoesNotFitInAWord",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_StaticLengthIsNotZero",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_StaticLengthIsZero",
+      "inputs": [
+        {
+          "name": "index",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_TooManyDynamicFields",
+      "inputs": [
+        {
+          "name": "numFields",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "maxFields",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "FieldLayout_TooManyFields",
+      "inputs": [
+        {
+          "name": "numFields",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "maxFields",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Module_AlreadyInstalled",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "Module_MissingDependency",
+      "inputs": [
+        {
+          "name": "dependency",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Module_NonRootInstallNotSupported",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "Module_RootInstallNotSupported",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "Schema_InvalidLength",
+      "inputs": [
+        {
+          "name": "length",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Schema_StaticTypeAfterDynamicType",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "Slice_OutOfBounds",
+      "inputs": [
+        {
+          "name": "data",
+          "type": "bytes",
+          "internalType": "bytes"
+        },
+        {
+          "name": "start",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "end",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_IndexOutOfBounds",
+      "inputs": [
+        {
+          "name": "length",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "accessedIndex",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidBounds",
+      "inputs": [
+        {
+          "name": "start",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "end",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidFieldNamesLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidKeyNamesLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidResourceType",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "bytes2",
+          "internalType": "bytes2"
+        },
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "resourceIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidSplice",
+      "inputs": [
+        {
+          "name": "startWithinField",
+          "type": "uint40",
+          "internalType": "uint40"
+        },
+        {
+          "name": "deleteCount",
+          "type": "uint40",
+          "internalType": "uint40"
+        },
+        {
+          "name": "fieldLength",
+          "type": "uint40",
+          "internalType": "uint40"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidStaticDataLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidValueSchemaDynamicLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidValueSchemaLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_InvalidValueSchemaStaticLength",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "received",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_TableAlreadyExists",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "tableIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "Store_TableNotFound",
+      "inputs": [
+        {
+          "name": "tableId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "tableIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_AccessDenied",
+      "inputs": [
+        {
+          "name": "resource",
+          "type": "string",
+          "internalType": "string"
+        },
+        {
+          "name": "caller",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_AlreadyInitialized",
+      "inputs": []
+    },
+    {
+      "type": "error",
+      "name": "World_CallbackNotAllowed",
+      "inputs": [
+        {
+          "name": "functionSelector",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_DelegationNotFound",
+      "inputs": [
+        {
+          "name": "delegator",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "delegatee",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_FunctionSelectorAlreadyExists",
+      "inputs": [
+        {
+          "name": "functionSelector",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_FunctionSelectorNotFound",
+      "inputs": [
+        {
+          "name": "functionSelector",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_InsufficientBalance",
+      "inputs": [
+        {
+          "name": "balance",
+          "type": "uint256",
+          "internalType": "uint256"
+        },
+        {
+          "name": "amount",
+          "type": "uint256",
+          "internalType": "uint256"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_InterfaceNotSupported",
+      "inputs": [
+        {
+          "name": "contractAddress",
+          "type": "address",
+          "internalType": "address"
+        },
+        {
+          "name": "interfaceId",
+          "type": "bytes4",
+          "internalType": "bytes4"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_InvalidNamespace",
+      "inputs": [
+        {
+          "name": "namespace",
+          "type": "bytes14",
+          "internalType": "bytes14"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_InvalidResourceId",
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "resourceIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_InvalidResourceType",
+      "inputs": [
+        {
+          "name": "expected",
+          "type": "bytes2",
+          "internalType": "bytes2"
+        },
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "resourceIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_ResourceAlreadyExists",
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "resourceIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_ResourceNotFound",
+      "inputs": [
+        {
+          "name": "resourceId",
+          "type": "bytes32",
+          "internalType": "ResourceId"
+        },
+        {
+          "name": "resourceIdString",
+          "type": "string",
+          "internalType": "string"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_SystemAlreadyExists",
+      "inputs": [
+        {
+          "name": "system",
+          "type": "address",
+          "internalType": "address"
+        }
+      ]
+    },
+    {
+      "type": "error",
+      "name": "World_UnlimitedDelegationNotAllowed",
+      "inputs": []
+    }
+  ]
