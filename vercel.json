@@ -4,6 +4,14 @@
       {
         "src": "listener.js",
         "use": "@vercel/node"
+      },
+      {
+        "src": "mainnetContractAbi.json",
+        "use": "@vercel/static"
+      },
+      {
+        "src": "testnetContractABI.json",
+        "use": "@vercel/static"
       }
     ],
     "routes": [
